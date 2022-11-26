@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Prophesy from "../Prophesy/Prophesy";
+import Prophecy from "../Prophecy/Prophecy";
 import Modal from "../UI/Modal";
 import classes from "./Month.module.css";
 
@@ -10,17 +10,17 @@ const Month = (props) => {
     setShow((prevShow) => !prevShow);
   };
 
-  let prophecies = <p>No Prophecy for you</p>;
+  let prophecyList = <p>No Prophecy for you</p>;
 
-  if (props.prophesy.length > 0) {
-    prophecies = (
+  if (props.prophecies.length > 0) {
+    prophecyList = (
       <ul className={classes["cart-items"]}>
-        {props.prophesy.map((profs) => {
+        {props.prophecies.map((item) => {
           return (
-            <Prophesy
-              prophet={profs.name}
-              key={profs.name}
-              profecy={profs.prophesy}
+            <Prophecy
+              prophet={item.name}
+              key={item.name}
+              prophecy={item.prophecy}
             />
           );
         })}
@@ -31,9 +31,9 @@ const Month = (props) => {
   return (
     <React.Fragment>
       <li className={classes.month} onClick={showToogler}>
-        <h3>{props.name}</h3>
+        <h3>{props.month}</h3>
       </li>
-      {show ? <Modal onClose={showToogler}>{prophecies}</Modal> : ""}
+      {show ? <Modal onClose={showToogler}>{prophecyList}</Modal> : ""}
     </React.Fragment>
   );
 };

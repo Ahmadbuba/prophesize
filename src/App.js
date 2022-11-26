@@ -1,96 +1,23 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Month from "./Components/Month/Month";
 import Header from "./Components/Layout/Header";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Main from "./Pages/Main";
+import Welcome from "./Pages/Welcome";
 
 function App() {
-  const DUMMY_PROPHESIES = [
-    {
-      month: "January",
-      prophesis: [
-        { name: "Prophet Adeboye", prophesy: "you will see grace" },
-        { name: "Prophet Job", prophesy: "you will see good health" },
-      ],
-    },
-    {
-      month: "February",
-      prophesis: [
-        { name: "Prophet Micheal", prophesy: "you will see fufilment" },
-      ],
-    },
-    {
-      month: "March",
-      prophesis: [
-        {
-          name: "Propeht David",
-          prophesy: "just be careful with cars while crossing please",
-        },
-      ],
-    },
-    {
-      month: "April",
-      prophesis: [
-        {
-          name: "Prophet Oyedepo",
-          prophesy:
-            "You will win something next month, keep working hard please",
-        },
-      ],
-    },
-    {
-      month: "May",
-      prophesis: [],
-    },
-    {
-      month: "June",
-      prophesis: [],
-    },
-    {
-      month: "July",
-      prophesis: [],
-    },
-    {
-      month: "August",
-      prophesis: [{ name: "Prophet Micheal", prophesy: "Farms shall bloosom" }],
-    },
-    {
-      month: "September",
-      prophesis: [],
-    },
-    {
-      month: "October",
-      prophesis: [],
-    },
-    {
-      month: "November",
-      prophesis: [
-        {
-          name: "Prophet Micheal",
-          prophesy: "your brother shall gain promotion",
-        },
-      ],
-    },
-    {
-      month: "December",
-      prophesis: [
-        { name: "Prophet Micheal", prophesy: "you will see fufilment" },
-        {
-          name: "Prophet David",
-          prophesy: "just be careful with cars while crossing please",
-        },
-      ],
-    },
-  ];
-
-  const month = DUMMY_PROPHESIES.map((item) => (
-    <Month key={item.month} name={item.month} prophesy={item.prophesis} />
-  ));
-
   return (
-    <div>
+    <React.Fragment>
       <Header />
-      {month}
-    </div>
+      <Switch>
+        <Route path="/">
+          <Welcome />
+        </Route>
+        <Route path="/main">
+          <Main />
+        </Route>
+      </Switch>
+    </React.Fragment>
   );
 }
 
