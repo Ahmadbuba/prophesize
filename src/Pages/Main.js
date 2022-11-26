@@ -1,4 +1,7 @@
+import React from "react";
 import Month from "../Components/Month/Month";
+import Header from "../Components/Layout/Header";
+import classes from "./Main.module.css";
 const Main = () => {
   const DUMMY_PROPHESIES = [
     {
@@ -84,7 +87,12 @@ const Main = () => {
     <Month key={item.month} month={item.month} prophecies={item.prophecies} />
   ));
 
-  return { month };
+  return (
+    <div className={classes.pt}>
+      <Header />
+      {month}
+    </div>
+  );
 };
 
 export default Main;

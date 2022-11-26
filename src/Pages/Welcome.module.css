@@ -2,6 +2,24 @@
   height: 100vh;
   width: 100%;
   background-color: #8a2b06;
-  display: flex;
-  justify-content: center;
+  color: greenyellow;
+}
+
+.main h2 {
+  font-size: 40px;
+}
+
+.text {
+  color: black;
+}
+
+.main_text {
+  color: blueviolet;
+}
+.btn {
+  border-radius: 60px;
+
+  color: aqua;
+  padding: 1rem;
+  font-size: 20px;
 }
